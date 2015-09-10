@@ -12,10 +12,12 @@ public class Game {
     // name of the game
     private static final String DEFAULT_NAME = "Roulette";
     // bets player can make
-    private Bet[] myPossibleBets = { 
-        new Bet("Red or Black", 1),
-        new Bet("Odd or Even", 1),
-        new Bet("Three in a Row", 11)
+    private Bet[] myPossibleBets = {
+    	new Bet("what", 100),
+        new Bet("A or B", 10),
+        new Bet("Even or Odd", 50),
+        new Bet("Row in a Three", 33),
+        new Bet("my bet", 5)
     };
     private Wheel myWheel;
 
@@ -77,18 +79,20 @@ public class Game {
      *
      * @param whichBet specific bet chosen by the user
      */
-    private String placeBet (int whichBet) {
+    private String placeBet (int someBet) {
         String result = "";
-        if (whichBet == 0) {
+        if (someBet == 0) {
             result = ConsoleReader.promptOneOf("Please bet", Wheel.BLACK, Wheel.RED);
         }
-        else if (whichBet == 1) {
+        else if (someBet == 1) {
             result = ConsoleReader.promptOneOf("Please bet", "even", "odd");
         }
-        else if (whichBet == 2) {
+        else if (someBet == 2) {
             result = "" + ConsoleReader.promptRange("Enter first of three consecutive numbers",
                                                     1, Wheel.NUM_SPOTS - 3);
         }
+        System.out.println();
+        System.out.println();
         System.out.println();
         return result;
     }
